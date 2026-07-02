@@ -39,22 +39,22 @@ export default async function AdminPage() {
   // Calculate statistics
   const stats = {
     totalBookings: bookings.length,
-    pendingBookings: bookings.filter(b => b.status === 'pending').length,
-    confirmedBookings: bookings.filter(b => b.status === 'confirmed').length,
+    pendingBookings: bookings.filter((b: any) => b.status === 'pending').length,
+    confirmedBookings: bookings.filter((b: any) => b.status === 'confirmed').length,
     totalReviews: reviews.length,
-    pendingReviews: reviews.filter(r => !r.approved).length,
+    pendingReviews: reviews.filter((r: any) => !r.approved).length,
     totalServices: services.length,
   };
 
   // Convert dates to ISO strings before passing to Client Component to avoid serialization warnings
-  const serializedBookings = bookings.map(b => ({
+  const serializedBookings = bookings.map((b: any) => ({
     ...b,
     date: b.date.toISOString(),
     createdAt: b.createdAt.toISOString(),
     updatedAt: b.updatedAt.toISOString(),
   }));
 
-  const serializedReviews = reviews.map(r => ({
+  const serializedReviews = reviews.map((r: any) => ({
     ...r,
     createdAt: r.createdAt.toISOString(),
   }));

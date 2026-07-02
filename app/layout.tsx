@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   },
   description: "ServiceNest offers premium African hair braiding services and authentic Nigerian dish cooking in North Dakota. Book your appointment or order your favorite dish today.",
   keywords: ["hair braiding", "African braiding", "Nigerian food", "Nkwobi", "Abacha", "North Dakota", "ServiceNest"],
+  icons: {
+    icon: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
   openGraph: {
     title: "ServiceNest — Premium Hair Braiding & African Cuisine",
     description: "Book premium hair braiding and authentic African cuisine services in North Dakota.",
