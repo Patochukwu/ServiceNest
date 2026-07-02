@@ -1,0 +1,127 @@
+.section {
+  background: var(--bg-surface);
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(232,130,12,0.04) 0%, transparent 70%);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  gap: 2rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 1.25rem;
+  height: 500px;
+}
+
+.galleryCard {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.galleryCard:hover {
+  border-color: var(--border-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(232,130,12,0.15);
+}
+
+.galleryCard:hover .imgWrapper img {
+  transform: scale(1.05);
+}
+
+.imgWrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.imgWrapper img {
+  transition: transform var(--transition-slow);
+}
+
+.imgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.4) 50%, rgba(8,8,8,0.1) 100%);
+}
+
+.tagBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.price {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--primary-light);
+}
+
+.mobileCta {
+  display: none;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    grid-auto-rows: 320px;
+  }
+  .featured { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  .gallery { grid-template-columns: 1fr; grid-auto-rows: 280px; }
+  .featured { grid-column: auto; }
+  .header { flex-direction: column; align-items: flex-start; }
+  .mobileCta { display: flex; }
+}

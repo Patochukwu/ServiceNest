@@ -1,0 +1,81 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.listCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.reviewCard {
+  padding: 1.5rem;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.reviewerInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar {
+  font-size: 1.5rem;
+  background: var(--bg-surface-3);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewerName {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.serviceMeta {
+  margin-top: 0.25rem;
+}
+
+.date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+.formCol {
+  position: sticky;
+  top: calc(var(--navbar-height) + 2rem);
+}
+
+.formCard {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+
+@media (max-width: 900px) {
+  .wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
+  .formCol { position: relative; top: 0; }
+}

@@ -1,0 +1,42 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 3rem;
+  align-items: flex-start;
+  padding-top: 1rem;
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.policyCard {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.policyCard ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.formCard {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .wrapper { grid-template-columns: 1fr; gap: 2rem; }
+  .formCard { padding: 1.5rem; }
+}

@@ -1,0 +1,75 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.errorBanner {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--error);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+}
+
+.paymentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.paymentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.paymentLabel {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  cursor: pointer;
+  background: var(--bg-surface-2);
+  transition: all var(--transition-fast);
+}
+
+.paymentLabel input {
+  margin-top: 0.25rem;
+  accent-color: var(--primary);
+}
+
+.paymentLabel strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 0.1rem;
+}
+
+.paymentLabel p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.activePayment {
+  border-color: var(--primary);
+  background: var(--primary-glow);
+}
+
+.disabledPayment {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .row, .paymentGrid { grid-template-columns: 1fr; gap: 1rem; }
+}
