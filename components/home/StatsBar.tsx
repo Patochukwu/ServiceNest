@@ -1,11 +1,11 @@
 import styles from './StatsBar.module.css';
 
 const stats = [
-  { value: '500+', label: 'Happy Clients', icon: '👥' },
-  { value: '20+', label: 'Braiding Styles', icon: '💇' },
-  { value: '15+', label: 'African Dishes', icon: '🍲' },
-  { value: '4.9★', label: 'Average Rating', icon: '⭐' },
-  { value: '3+', label: 'Years Serving ND', icon: '📍' },
+  { value: '500+', label: 'Happy Clients', icon: '' },
+  { value: '20+', label: 'Braiding Styles', icon: '' },
+  { value: '15+', label: 'African Dishes', icon: '' },
+  { value: '4.9★', label: 'Average Rating', icon: '' },
+  { value: '3+', label: 'Years Serving ND', icon: '' },
 ];
 
 export default function StatsBar() {

@@ -74,7 +74,7 @@ export default function ServicesGrid() {
                 {svc.features.map((feat) => (
                   <li key={feat} className={styles.featureItem}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <polyline points="20 6 9 17 4 12"/>
+                      <polyline points="20 6 9 17 4 12" />
                     </svg>
                     {feat}
                   </li>
@@ -85,7 +85,7 @@ export default function ServicesGrid() {
               <Link href={svc.href} className={`btn btn-outline ${styles.cardCta}`} id={`services-cta-${svc.id}`}>
                 {svc.cta}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="m9 18 6-6-6-6"/>
+                  <path d="m9 18 6-6-6-6" />
                 </svg>
               </Link>
             </div>
@@ -95,7 +95,7 @@ export default function ServicesGrid() {
         {/* More Services Coming Banner */}
         <div className={styles.comingSoon}>
           <div className={styles.comingInner}>
-            <span className={styles.comingIcon}>🚀</span>
+            <span className={styles.comingIcon}></span>
             <div>
               <p className="heading-sm">More Services Coming Soon</p>
               <p className="body-sm text-muted">We&apos;re expanding — stay tuned for nail care, event planning, and more.</p>
