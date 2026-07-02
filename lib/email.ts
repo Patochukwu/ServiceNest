@@ -28,7 +28,9 @@ const isSMTPConfigured = !!(
 
 // CID for the logo attachment — stable identifier referenced in HTML
 const LOGO_CID = 'servicenest-logo@sn';
-const LOGO_PATH = path.join(process.cwd(), 'public', 'logo.jpeg');
+const LOGO_PATH = fs.existsSync(path.join(process.cwd(), 'lib', 'logo.jpeg'))
+  ? path.join(process.cwd(), 'lib', 'logo.jpeg')
+  : path.join(process.cwd(), 'public', 'logo.jpeg');
 const LOGO_EXISTS = fs.existsSync(LOGO_PATH);
 
 // Build the logo attachment object for Nodemailer (reused in every email)

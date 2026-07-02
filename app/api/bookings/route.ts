@@ -45,35 +45,35 @@ export async function POST(request: Request) {
       day: 'numeric',
     });
 
-    // Dispatch customer and admin notifications in the background (non-blocking)
-    (async () => {
-      try {
-        await Promise.all([
-          // 1. Notify Customer
-          sendBookingReceivedEmail(email, {
-            customerName,
-            serviceName: service.name,
-            date: formattedDate,
-            timeSlot,
-            bookingId: booking.id,
-          }),
+    // Dispatch customer and admin notifications and await completion
+    // In serverless environments like Vercel, unawaited background tasks are instantly terminated
+    // the moment NextResponse.json() returns a response.
+    try {
+      await Promise.all([
+        // 1. Notify Customer
+        sendBookingReceivedEmail(email, {
+          customerName,
+          serviceName: service.name,
+          date: formattedDate,
+          timeSlot,
+          bookingId: booking.id,
+        }),
 
-          // 2. Notify Admin via Email
-          sendAdminNewBookingNotificationEmail({
-            customerName,
-            customerEmail: email,
-            customerPhone: phone,
-            serviceName: service.name,
-            date: formattedDate,
-            timeSlot,
-            bookingId: booking.id,
-            notes: notes || '',
-          }),
-        ]);
-      } catch (notificationErr) {
-        console.error('Failed to dispatch background booking notifications:', notificationErr);
-      }
-    })();
+        // 2. Notify Admin via Email
+        sendAdminNewBookingNotificationEmail({
+          customerName,
+          customerEmail: email,
+          customerPhone: phone,
+          serviceName: service.name,
+          date: formattedDate,
+          timeSlot,
+          bookingId: booking.id,
+          notes: notes || '',
+        }),
+      ]);
+    } catch (notificationErr) {
+      console.error('Failed to dispatch booking notifications:', notificationErr);
+    }
 
     return NextResponse.json(
       { id: booking.id, message: 'Booking successful.' },
